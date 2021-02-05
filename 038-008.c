@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+int main(){
+    float a,b,c,d,x1,x2,x11,x12;
+    scanf("%f %f %f",&a,&b,&c);
+    d=b*b-4*a*c;
+    x11=-(b)/(2*a);
+    if(d>=0){
+        x12=sqrt(d)/(2*a);
+        if(x11+x12<0){
+            x1=ceil((x11+x12)*10)/10;
+            x2=ceil((x11-x12)*10)/10;
+        }else{
+            x1=floor((x11+x12)*10)/10;
+            x2=floor((x11-x12)*10)/10;
+        }
+        printf("%.1f\n",x1);
+        printf("%.1f",x2);
+    }else{
+        x12=sqrt(-d)/(2*a);
+        if(x12<0){
+            x12=floor(-x12*10)/10;;
+        }else{
+            x12=floor(x12*10)/10;
+        }
+        if(x11<0){
+            x11=ceil(x11*10)/10;
+        }else{
+            x11=floor(x11*10)/10;
+        }
+        if(x11==0){
+            printf("%.1f+%.1fi\n",-x11,x12);
+            printf("%.1f-%.1fi",-x11,x12);
+        }else{
+            printf("%.1f+%.1fi\n",x11,x12);
+            printf("%.1f-%.1fi",x11,x12);
+        }
+    }
+}
